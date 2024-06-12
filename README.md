@@ -7,7 +7,9 @@
 <p>
 <i>Выполнено в рамках магистерской диссертации. </i>
 <p>
-<b>Автоматизированное создание текстовых повествований на основе визуальных данных,</b> которое может анализировать последовательности изображений и генерировать связные текстовые описания.
+	
+## Разработка и оценка алгоритмов компьютерного зрения для автоматизированного повествования на основе последовательностей изображений
+	
 <p>
 <img src='https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/matrix.gif' alt='Awesome Matrix Code' align='right'/>
 <p>
@@ -20,11 +22,17 @@
 
 <p>
 
+<a href="https://paperswithcode.com/dataset/vist" target="_blank">
+    <img src="https://img.shields.io/badge/View%20Dataset-brightgreen" alt="View Dataset">
+</a>
+
 ## Разработка модели:
 
 ### Основная архитектура
 
 Работа основывается на использовании архитектуры Sequence-to-Sequence (Seq2Seq) с применением LSTM. Эта архитектура позволяет эффективно учитывать контекст предыдущих изображений и текстов при генерации повествований. Модель состоит из трех основных компонентов: энкодера текста, энкодера изображений и декодера.
+
+<img src='https://github.com/NataAntro/IMG_Story/blob/main/Architecture.png' alt='Awesome Matrix Code' align='centre'/>
 
 ### Энкодер текста
 
@@ -52,8 +60,11 @@
 ### Основные достижения
 
 - **Улучшение контекстуальной связности**: Работа демонстрирует, что модель, основанная на Seq2Seq с использованием LSTM, превосходит модели с использованием GRU по метрикам METEOR и ROUGE. Это является значительным достижением, так как демонстрирует улучшение качества генерируемых текстов.
+<img src='https://github.com/NataAntro/IMG_Story/blob/main/Example.png' alt='Awesome Matrix Code' align='centre'/>
 
 - **Эффективность модели**: Предложенная модель показывает примерно равную производительность по сравнению с более сложными архитектурами, такими как Greedy и AREL, что подтверждает ее эффективность без избыточной сложности.
+  
+<img src='https://github.com/NataAntro/IMG_Story/blob/main/Metrics.png' alt='Awesome Matrix Code' align='centre'/>
 
 ```python
  class WhoAmI:
