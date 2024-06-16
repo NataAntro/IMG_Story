@@ -33,7 +33,7 @@ def beam_search_decoder(data, k):
     return sequences
 
 # Функция для создания модели декодера с механизмом внимания и Beam Search
-def create_decoder_with_attention_and_beam_search(input_seq_len, output_seq_len, num_input_features, pre_attention_lstm_size, post_attention_lstm_size, vocab_size, beam_width):
+def create_decoder_with_attention_and_beam_search(input_seq_len, output_seq_len, num_input_features, pre_attention_lstm_size, post_attention_lstm_size, vocab_size, beam_width=5):
     cell_initial_state = [0] * post_attention_lstm_size
     initial_state_tensor = variable(cell_initial_state)
     x = Input(shape=(input_seq_len, num_input_features))
