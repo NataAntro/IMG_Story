@@ -1,75 +1,77 @@
-Привет, это Натали Антро и мой новый проект IMG_Story! <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="28px" height="28px">
+[🇬🇧 English](README.md) | [🇷🇺 Русский](README.ru.md)
+
+Hi, I'm Natali Antro. This is my project, IMG_Story! <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="28px" height="28px">
 <p>
 <a href="https://image-story-b36fb7a799d2.herokuapp.com/" target="_blank">
     <img src="https://img.shields.io/badge/Launch-App-brightgreen" alt="Launch App">
 </a>
 
+The original hosted demo is currently unavailable.
+
 <p>
-<i>Выполнено в рамках магистерской диссертации. </i>
+<i>Developed as part of my master's thesis.</i>
 <p>
-	
-## Разработка и оценка алгоритмов компьютерного зрения для автоматизированного повествования на основе последовательностей изображений
-	
+
+## Developing and evaluating computer vision algorithms for automated storytelling from image sequences
+
 <p>
 <img src='https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/matrix.gif' alt='Awesome Matrix Code' align='right'/>
 <p>
-	
-## Набор данных:
-<p>
 
-    Для реализации поставленных задач использован набор данных VIST (Visual Storytelling), который включает более 80 тысяч уникальных фотографий, сгруппированных в более 20 тысяч 
-    последовательностей. Эти данные были нормализованы и предварительно обработаны, чтобы улучшить обучение модели.
+## Dataset
+
+The project uses VIST (Visual Storytelling), a dataset of over 80,000 unique photos grouped into more than 20,000 sequences. The data was normalized and preprocessed to improve model training.
 
 <p>
 
-<a href="https://paperswithcode.com/dataset/vist" target="_blank">
+<a href="https://visionandlanguage.net/VIST/dataset.html" target="_blank">
     <img src="https://img.shields.io/badge/View%20Dataset-brightgreen" alt="View Dataset">
 </a>
 
-## Разработка модели:
+## Model development
 
-### Основная архитектура
+### Core architecture
 
-Работа основывается на использовании архитектуры Sequence-to-Sequence (Seq2Seq) с применением LSTM. Эта архитектура позволяет эффективно учитывать контекст предыдущих изображений и текстов при генерации повествований. Модель состоит из трех основных компонентов: энкодера текста, энкодера изображений и декодера.
+The model uses a Sequence-to-Sequence (Seq2Seq) architecture with LSTM layers to incorporate context from preceding images and text as it generates a story. It consists of three main components: a text encoder, an image encoder, and a decoder.
 
-<img src='https://github.com/NataAntro/IMG_Story/blob/main/Architecture.png' alt='Awesome Matrix Code' align='centre'/>
+<img src='https://github.com/NataAntro/IMG_Story/blob/main/Architecture.png' alt='Model architecture' align='centre'/>
 
-### Энкодер текста
+### Text encoder
 
-- **Преобразование текстовых данных**: Текстовые данные преобразуются в числовые векторы с помощью модели GloVe, которая создает 300-мерные векторы слов.
-- **Обработка последовательностей**: Эти векторы затем передаются через несколько слоев LSTM, которые помогают модели запоминать и обрабатывать последовательности слов, учитывая их контекст.
+- **Text representation:** GloVe maps words to 300-dimensional vectors.
+- **Sequence processing:** Multiple LSTM layers process the word vectors in sequence and retain contextual information.
 
-### Энкодер изображений
+### Image encoder
 
-- **Извлечение признаков**: Изображения обрабатываются с помощью предварительно обученной модели Xception для извлечения важных признаков, таких как формы и текстуры.
-- **Анализ последовательностей**: Извлеченные признаки передаются через несколько слоев LSTM, которые помогают анализировать последовательность изображений, учитывая их взаимосвязь.
+- **Feature extraction:** A pretrained Xception model extracts visual features such as shapes and textures.
+- **Sequence processing:** Multiple LSTM layers process the extracted features in sequence and capture relationships between images.
 
-### Декодер
+### Decoder
 
-- **Хранение контекста**: Объединенные признаки текста и изображений передаются в ячейку памяти, которая хранит контекст всей последовательности.
-- **Генерация текста**: Декодер использует несколько слоев LSTM для генерации текста, предсказывая следующее слово в предложении на основе контекста.
-- **Функция активации**: Каждый выходной слой LSTM подключен к функции активации Softmax, которая выбирает наиболее вероятное следующее слово.
+- **Context retention:** A memory cell receives the combined text and image features and retains context for the full sequence.
+- **Text generation:** Multiple LSTM layers generate text by predicting the next word from the context.
+- **Activation function:** Each LSTM output layer feeds a softmax activation that selects the most probable next word.
 
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Seq+2+Seq)](https://git.io/typing-svg)
- 
+
  ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
- ## Результаты
+## Results
 
-### Основные достижения
+### Main findings
 
-- **Улучшение контекстуальной связности**: Работа демонстрирует, что модель, основанная на Seq2Seq с использованием LSTM, превосходит модели с использованием GRU по метрикам METEOR и ROUGE. Это является значительным достижением, так как демонстрирует улучшение качества генерируемых текстов.
-<img src='https://github.com/NataAntro/IMG_Story/blob/main/Example.png' alt='Awesome Matrix Code' align='centre'/>
+- **Improved contextual coherence:** The LSTM-based Seq2Seq model outperformed GRU-based models on METEOR and ROUGE, indicating an improvement in generated text quality.
+<img src='https://github.com/NataAntro/IMG_Story/blob/main/Example.png' alt='Example model output' align='centre'/>
 
-- **Эффективность модели**: Предложенная модель показывает примерно равную производительность по сравнению с более сложными архитектурами, такими как Greedy и AREL, что подтверждает ее эффективность без избыточной сложности.
-  
-<img src='https://github.com/NataAntro/IMG_Story/blob/main/Metrics.png' alt='Awesome Matrix Code' align='centre'/>
+- **Model efficiency:** The proposed model performed comparably to the more complex Greedy and AREL approaches while keeping the architecture simpler.
+
+<img src='https://github.com/NataAntro/IMG_Story/blob/main/Metrics.png' alt='Model evaluation metrics' align='centre'/>
 
 ```python
  class WhoAmI:
     user = 'NataAntro'
-    current_adventure = ('URFU Student', 'AI/ML Engineer', 'QA Specialist (BaccaSoft)', 
+    current_adventure = ('URFU Student', 'AI/ML Engineer', 'QA Specialist (BaccaSoft)',
 			 'Metaverse Researcher', 'Digital artist')
     passions = [
         'Music',
@@ -87,5 +89,5 @@
         return ['LearnAIandML', 'CreateStartUp', 'LiveinHappiness']
         # Assume 10 more awesome ambitions here  ;)
 
-	
+
  ```
